@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Notícias do IBGE</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Portal de Notícias do IBGE</h1>
+        <form class="search-form" action="/search" method="GET">
+            <input class="search-input" type="text" name="q" placeholder="Buscar notícia por termo">
+            <button class="search-button" type="submit">🔍</button>
+        </form>
+        <div class="filter-icon-container" onclick="openFilters()">
+            <svg width="20" height="20" fill="#f0f0f0" viewBox="0 0 80 90" focusable="false" xmlns="http://www.w3.org/2000/svg">
+                <path d="m 0,0 30,45 0,30 10,15 0,-45 30,-45 Z"></path>
+            </svg>
+            <span class="filter-count" id="filter-count">0</span>
+        </div>
+    </header>
+    <main>
+        <ul id="newsList"></ul>
+        <ul id="pagination"></ul>
+    </main>
+    <footer>
+        <p>&copy; 2024 Portal de Notícias do IBGE. Todos os direitos reservados.</p>
+    </footer>
+
+    <dialog id="filter-dialog">
+        <button class="dialog-close" onclick="closeFilters()">X</button>
+        <form id="filter-form">
+            <label for="tipo">Tipo:</label>
+            <select id="tipo" name="tipo">
+
+            </select>
+            
+            <label for="quantidade">Quantidade:</label>
+            <select id="quantidade" name="quantidade">
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="25">25</option>
+                <option value="30">30</option>
+            </select>
+            
+            <label for="de">De:</label>
+            <input type="date" id="de" name="de">
+            
+            <label for="ate">Até:</label>
+            <input type="date" id="ate" name="ate">
+            
+            <button type="button" onclick="applyFilters()">Aplicar</button>
+        </form>
+    </dialog>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
